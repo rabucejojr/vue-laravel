@@ -1,5 +1,5 @@
 <script setup>
-import { useForm } from "@inertiajs/vue3";
+import { useForm, Head } from '@inertiajs/vue3';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 
 defineProps({
@@ -29,6 +29,7 @@ const deleteId = (id) =>{
 </script>
 <template>
     <AuthenticatedLayout>
+        <Head title="Students"/>
         <div class="p-12">
             <div class="flex justify-center">
                 <table class="w-3/5 text-center border-collapse border border-gray-300">

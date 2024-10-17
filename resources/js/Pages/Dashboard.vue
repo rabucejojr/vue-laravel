@@ -7,7 +7,7 @@ import Show from './Show.vue';
 </script>
 
 <template>
-    <Head title="Dashboard" />
+    <Head title="Add" />
 
     <AuthenticatedLayout>
 
