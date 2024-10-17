@@ -1,5 +1,6 @@
 <script setup>
 import { useForm } from "@inertiajs/vue3";
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 
 defineProps({
     students:{
@@ -27,27 +28,31 @@ const deleteId = (id) =>{
 }
 </script>
 <template>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="student in students" :key="student.id">
-                    <td>{{ student.id }}</td>
-                    <td>{{ student.fname }}</td>
-                    <td>{{ student.lname }}</td>
-                    <td>
-                        <button @click="edit(student.id)">Edit</button>
-                        <button @click="deleteId(student.id)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <AuthenticatedLayout>
+        <div class="p-12">
+            <div class="flex justify-center">
+                <table class="w-3/5 text-center border-collapse border border-gray-300">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border border-gray-300 px-4 py-2">ID</th>
+                                <th class="border border-gray-300 px-4 py-2">First Name</th>
+                                <th class="border border-gray-300 px-4 py-2">Last Name</th>
+                                <th class="border border-gray-300 px-4 py-2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="student in students" :key="student.id">
+                                <td class="border border-gray-300 px-4 py-2">{{ student.id }}</td>
+                                <td class="border border-gray-300 px-4 py-2">{{ student.fname }}</td>
+                                <td class="border border-gray-300 px-4 py-2">{{ student.lname }}</td>
+                                <td class="border border-gray-300 px-4 py-2">
+                                    <button class="bg-sky-500 w-12 rounded-lg" @click="edit(student.id)">Edit</button>
+                                    <button class="bg-red-500 w-12 rounded-lg" @click="deleteId(student.id)">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </AuthenticatedLayout>
 </template>
